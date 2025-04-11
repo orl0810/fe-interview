@@ -1,0 +1,16 @@
+<div *ngIf="movie() as m" class="movie-detail">
+  <img [src]="m.image.url" [alt]="m.image.title" />
+  
+  <div class="details">
+    <h1>{{ m.title }}</h1>
+    <p><strong>Popularity:</strong> {{ rounded(m.popularity) }}</p>
+    <p><strong>Released:</strong> {{ m.released }}</p>
+    <p><strong>Runtime:</strong> {{ m.runtime }}</p>
+    <p><strong>Genres:</strong> {{ m.genres.join(', ') }}</p>
+    <p><strong>Budget:</strong> {{ m.budget | currency:'EUR' }}</p>
+  </div>
+</div>
+
+<div *ngIf="!movie()" class="no-movie">
+  <p>Movie not found.</p>
+</div>

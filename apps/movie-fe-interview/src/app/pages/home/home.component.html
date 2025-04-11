@@ -1,0 +1,7 @@
+<h1 class="app-home__title">Home</h1>
+
+<div class="app-home__content">
+	<div class="movie-list">
+		<app-movie *ngFor="let movie of topTenMovies()" [movie]="movie" />
+	</div>  
+</div>

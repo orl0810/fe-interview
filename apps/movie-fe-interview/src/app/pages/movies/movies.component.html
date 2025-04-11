@@ -1,0 +1,37 @@
+<div class="movies-container">
+  <div class="filter-form">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        id="title"
+        [formControl]="searchTermControl"
+        placeholder="Search movies..."
+      />
+    </div>
+  
+    <div class="form-group genres-filter">
+      <label for="genreSelect">Genres:</label>
+      <select
+        id="genreSelect"
+        multiple
+        (change)="onGenreSelectChange($event)"
+      >
+        <option
+          *ngFor="let genre of filteredGenres()"
+          [value]="genre"
+          [selected]="selectedGenres().includes(genre)"
+        >
+          {{ genre }}
+        </option>
+      </select>
+  
+      <button (click)="clearGenres()">Clear</button>
+    </div>
+  </div>
+  
+  
+  <div class="movie-list">
+    <app-movie *ngFor="let movie of filteredMovies()" [movie]="movie" />
+  </div>
+</div>
